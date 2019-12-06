@@ -125,7 +125,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       queryType: 'simple',
       queryOfLoanTermCountRange: null,
@@ -140,7 +140,7 @@ export default {
           serviceInstance: tapp.services.pL_LoanEnter.getPagedList,
           serviceInstanceInputParameters: {
             searchKey: null,
-            activited: true,
+            activited: true
           }
         },
         grid: {
@@ -153,240 +153,240 @@ export default {
               type: 'text',
               show: true,
               label: '查看',
-              method: this.doEdit,
-            }, ]
+              method: this.doEdit
+            } ]
           }, // 列操作按钮
           columns: [{
-              prop: 'customerCode',
-              label: '编号',
-              sortable: true,
-                fixed: 'left',
-              width: 120
-            },
-            {
-              prop: 'customerName',
-              label: '文本输入',
-              sortable: true,
-                fixed: 'left',
-              width: 100
-            },
-            {
-              prop: 'customerCardNO',
-              label: '身份证号',
-              sortable: true,
-              width: 170
-            },
-            {
-              prop: 'loanMoneyAmount',
-              label: '数字输入',
-              sortable: true,
-              width: 120,
-              formatter: (row, column, cellValue) => {
-                return this.$util.numberFormat(row.loanMoneyAmount, 2);
-              }
-            },
-            {
-              prop: 'loanTermCount',
-              label: '整形输入',
-              sortable: true,
-              width: 100,
-              formatter: (row, column, cellValue) => {
-                return this.$util.intFormat(row.loanMoneyAmount);
-              }
-            },
-            {
-              prop: 'originalLoanMoneyAmount',
-              label: '金额输入',
-              sortable: true,
-              width: 100,
-              formatter: (row, column, cellValue) => {
-                return this.$util.moneyFormat(row.originalLoanMoneyAmount);
-              }
-            },
-            {
-              prop: 'financeFamilyTotalAsset',
-              label: '金额输入-万',
-              sortable: true,
-              width: 120,
-              render: (h, params) => {
-                var self = this;
-                return h('t-highlight-view', {
-                  props: {
-                    value: self.$util.moneyFormat(params.row.financeFamilyTotalAsset || 0),
-                  }
-                })
-              }
-            },
-            {
-              prop: 'financeReturnMoneyLoanRate',
-              label: '百分比输入',
-              sortable: true,
-              width: 120,
-              formatter: (row, column, cellValue) => {
-                return this.$util.percentFormat(row.financeReturnMoneyLoanRate);
-              }
-            },
-            {
-              prop: 'loanApplyDate',
-              label: '日期输入',
-              sortable: true,
-              width: 150,
-              formatter: (row, column, cellValue) => {
-                return this.$util.dateFormat(row.loanApplyDate);
-              }
-            },
-            {
-              prop: 'loanApplySumbitDate',
-              label: '日期时间输入',
-              sortable: true,
-              width: 160,
-              formatter: (row, column, cellValue) => {
-                return this.$util.datetimeFormat(row.loanApplySumbitDate);
-              }
-            },
-            {
-              prop: 'sexId',
-              columnKey: 'sexId',
-              filters: this.$util.getListDataDicFilters('public_sex'),
-              label: '性别',
-              sortable: true,
-              width: 100,
-              formatter: (row, column, cellValue) => {
-                return this.$util.dataDicFormat('public_sex', row.sexId);
-              }
-            },
-            {
-              prop: 'maritalStatusIdList',
-              columnKey: 'maritalStatusIdList',
-              label: '婚姻状况',
-              sortable: true,
-              width: 150,
-              formatter: (row, column, cellValue) => {
-                return this.$util.dataDicsFormat('public_maritalstatus', row.maritalStatusIds);
-              }
-            },
-            {
-              prop: 'socialSecurityId',
-              columnKey: 'socialSecurityId',
-              label: '树形单选',
-              sortable: true,
-              width: 150,
-              formatter: (row, column, cellValue) => {
-                return this.$util.dataDicFormat('base_region', row.socialSecurityId);
-              }
-            },
-            {
-              prop: 'companyWorkTermIdList',
-              columnKey: 'companyWorkTermIdList',
-              label: '树形多选',
-              sortable: true,
-              width: 150,
-              formatter: (row, column, cellValue) => {
-                return this.$util.dataDicsFormat('base_region', row.companyWorkTermIds);
-              }
-            },
-            {
-              prop: 'activited',
-              columnKey: 'activited',
-              label: '是否可用',
-              sortable: true,
-              width: 110,
-              formatter: (row, column, cellValue) => {
-                return row.activited == null ? '' : (row.activited ? '是' : '否');
-              }
-            },
-            {
-              prop: 'trackingPersonInfoMRName',
-              label: '人员',
-              sortable: false,
-              minWidth: 120
-            },
+            prop: 'customerCode',
+            label: '编号',
+            sortable: true,
+            fixed: 'left',
+            width: 120
+          },
+          {
+            prop: 'customerName',
+            label: '文本输入',
+            sortable: true,
+            fixed: 'left',
+            width: 100
+          },
+          {
+            prop: 'customerCardNO',
+            label: '身份证号',
+            sortable: true,
+            width: 170
+          },
+          {
+            prop: 'loanMoneyAmount',
+            label: '数字输入',
+            sortable: true,
+            width: 120,
+            formatter: (row, column, cellValue) => {
+              return this.$util.numberFormat(row.loanMoneyAmount, 2)
+            }
+          },
+          {
+            prop: 'loanTermCount',
+            label: '整形输入',
+            sortable: true,
+            width: 100,
+            formatter: (row, column, cellValue) => {
+              return this.$util.intFormat(row.loanMoneyAmount)
+            }
+          },
+          {
+            prop: 'originalLoanMoneyAmount',
+            label: '金额输入',
+            sortable: true,
+            width: 100,
+            formatter: (row, column, cellValue) => {
+              return this.$util.moneyFormat(row.originalLoanMoneyAmount)
+            }
+          },
+          {
+            prop: 'financeFamilyTotalAsset',
+            label: '金额输入-万',
+            sortable: true,
+            width: 120,
+            render: (h, params) => {
+              var self = this
+              return h('t-highlight-view', {
+                props: {
+                  value: self.$util.moneyFormat(params.row.financeFamilyTotalAsset || 0)
+                }
+              })
+            }
+          },
+          {
+            prop: 'financeReturnMoneyLoanRate',
+            label: '百分比输入',
+            sortable: true,
+            width: 120,
+            formatter: (row, column, cellValue) => {
+              return this.$util.percentFormat(row.financeReturnMoneyLoanRate)
+            }
+          },
+          {
+            prop: 'loanApplyDate',
+            label: '日期输入',
+            sortable: true,
+            width: 150,
+            formatter: (row, column, cellValue) => {
+              return this.$util.dateFormat(row.loanApplyDate)
+            }
+          },
+          {
+            prop: 'loanApplySumbitDate',
+            label: '日期时间输入',
+            sortable: true,
+            width: 160,
+            formatter: (row, column, cellValue) => {
+              return this.$util.datetimeFormat(row.loanApplySumbitDate)
+            }
+          },
+          {
+            prop: 'sexId',
+            columnKey: 'sexId',
+            filters: this.$util.getListDataDicFilters('public_sex'),
+            label: '性别',
+            sortable: true,
+            width: 100,
+            formatter: (row, column, cellValue) => {
+              return this.$util.dataDicFormat('public_sex', row.sexId)
+            }
+          },
+          {
+            prop: 'maritalStatusIdList',
+            columnKey: 'maritalStatusIdList',
+            label: '婚姻状况',
+            sortable: true,
+            width: 150,
+            formatter: (row, column, cellValue) => {
+              return this.$util.dataDicsFormat('public_maritalstatus', row.maritalStatusIds)
+            }
+          },
+          {
+            prop: 'socialSecurityId',
+            columnKey: 'socialSecurityId',
+            label: '树形单选',
+            sortable: true,
+            width: 150,
+            formatter: (row, column, cellValue) => {
+              return this.$util.dataDicFormat('base_region', row.socialSecurityId)
+            }
+          },
+          {
+            prop: 'companyWorkTermIdList',
+            columnKey: 'companyWorkTermIdList',
+            label: '树形多选',
+            sortable: true,
+            width: 150,
+            formatter: (row, column, cellValue) => {
+              return this.$util.dataDicsFormat('base_region', row.companyWorkTermIds)
+            }
+          },
+          {
+            prop: 'activited',
+            columnKey: 'activited',
+            label: '是否可用',
+            sortable: true,
+            width: 110,
+            formatter: (row, column, cellValue) => {
+              return row.activited == null ? '' : (row.activited ? '是' : '否')
+            }
+          },
+          {
+            prop: 'trackingPersonInfoMRName',
+            label: '人员',
+            sortable: false,
+            minWidth: 120
+          }
           ], // 需要展示的列
           defaultSort: {
             prop: 'id',
             order: 'descending'
-          },
+          }
         }
       }
     }
   },
   components: {},
-  created() {
+  created () {
 
   },
   methods: {
-    onLoanTermCountRangeChanged(val) {
-      this.gridOptions.dataSource.serviceInstanceInputParameters.loanTermCountBegin = val[0];
-      this.gridOptions.dataSource.serviceInstanceInputParameters.loanTermCountEnd = val[1];
+    onLoanTermCountRangeChanged (val) {
+      this.gridOptions.dataSource.serviceInstanceInputParameters.loanTermCountBegin = val[0]
+      this.gridOptions.dataSource.serviceInstanceInputParameters.loanTermCountEnd = val[1]
     },
-    onLoanMoneyAmountRangeChanged(val) {
-      this.gridOptions.dataSource.serviceInstanceInputParameters.loanMoneyAmountBegin = val[0];
-      this.gridOptions.dataSource.serviceInstanceInputParameters.loanMoneyAmountEnd = val[1];
+    onLoanMoneyAmountRangeChanged (val) {
+      this.gridOptions.dataSource.serviceInstanceInputParameters.loanMoneyAmountBegin = val[0]
+      this.gridOptions.dataSource.serviceInstanceInputParameters.loanMoneyAmountEnd = val[1]
     },
-    onOriginalLoanMoneyAmountRangeChanged(val) {
-      this.gridOptions.dataSource.serviceInstanceInputParameters.originalLoanMoneyAmountBegin = val[0];
-      this.gridOptions.dataSource.serviceInstanceInputParameters.originalLoanMoneyAmountEnd = val[1];
+    onOriginalLoanMoneyAmountRangeChanged (val) {
+      this.gridOptions.dataSource.serviceInstanceInputParameters.originalLoanMoneyAmountBegin = val[0]
+      this.gridOptions.dataSource.serviceInstanceInputParameters.originalLoanMoneyAmountEnd = val[1]
     },
-    onFinanceFamilyTotalAssetRangeChanged(val) {
-      this.gridOptions.dataSource.serviceInstanceInputParameters.financeFamilyTotalAssetBegin = val[0];
-      this.gridOptions.dataSource.serviceInstanceInputParameters.financeFamilyTotalAssetEnd = val[1];
+    onFinanceFamilyTotalAssetRangeChanged (val) {
+      this.gridOptions.dataSource.serviceInstanceInputParameters.financeFamilyTotalAssetBegin = val[0]
+      this.gridOptions.dataSource.serviceInstanceInputParameters.financeFamilyTotalAssetEnd = val[1]
     },
-    onFinanceReturnMoneyLoanRateRangeChanged(val) {
-      this.gridOptions.dataSource.serviceInstanceInputParameters.financeReturnMoneyLoanRateBegin = val[0];
-      this.gridOptions.dataSource.serviceInstanceInputParameters.financeReturnMoneyLoanRateEnd = val[1];
+    onFinanceReturnMoneyLoanRateRangeChanged (val) {
+      this.gridOptions.dataSource.serviceInstanceInputParameters.financeReturnMoneyLoanRateBegin = val[0]
+      this.gridOptions.dataSource.serviceInstanceInputParameters.financeReturnMoneyLoanRateEnd = val[1]
     },
-    onLoanApplyDateRangeChanged(val) {
-      this.gridOptions.dataSource.serviceInstanceInputParameters.loanApplyDateBegin = val[0];
-      this.gridOptions.dataSource.serviceInstanceInputParameters.loanApplyDateEnd = val[1];
+    onLoanApplyDateRangeChanged (val) {
+      this.gridOptions.dataSource.serviceInstanceInputParameters.loanApplyDateBegin = val[0]
+      this.gridOptions.dataSource.serviceInstanceInputParameters.loanApplyDateEnd = val[1]
     },
-    onLoanApplySumbitDateRangeChanged(val) {
-      this.gridOptions.dataSource.serviceInstanceInputParameters.loanApplySumbitDateBegin = val[0];
-      this.gridOptions.dataSource.serviceInstanceInputParameters.loanApplySumbitDateEnd = val[1];
+    onLoanApplySumbitDateRangeChanged (val) {
+      this.gridOptions.dataSource.serviceInstanceInputParameters.loanApplySumbitDateBegin = val[0]
+      this.gridOptions.dataSource.serviceInstanceInputParameters.loanApplySumbitDateEnd = val[1]
     },
 
-    doNew() {
+    doNew () {
       this.$router.push({
-        name: 'pl_loanapplyInput',
-      });
+        name: 'pl_loanapplyInput'
+      })
     },
-    doEdit(key, row) {
-      let tpath = '/loansubsystem/task/loanEnterForm?id=' + row.id;
+    doEdit (key, row) {
+      let tpath = '/loansubsystem/task/loanEnterForm?id=' + row.id
 
       this.$router.push({
         path: tpath
-      });
+      })
     },
-    doSwitchQueryType() {
+    doSwitchQueryType () {
       if (this.queryType == 'simple') {
-        this.queryType = 'advanced';
+        this.queryType = 'advanced'
       } else {
-        this.queryType = 'simple';
+        this.queryType = 'simple'
       }
     },
-    doExportExcel() {
-      this.$refs.searchReulstList.exportCSV('进件列表');
+    doExportExcel () {
+      this.$refs.searchReulstList.exportCSV('进件列表')
     },
-    doSearch() {
-      this.$refs.searchReulstList.refresh();
+    doSearch () {
+      this.$refs.searchReulstList.refresh()
     },
-    getSummaries(param) {
+    getSummaries (param) {
       const {
         columns,
         data,
         reduces
-      } = param;
+      } = param
 
-      this.reduces = reduces || [];
+      this.reduces = reduces || []
 
       if (reduces == null) {
-        return [];
+        return []
       }
-      const sums = [];
-      sums[1] = '合计';
-      sums[7] = this.$util.moneyFormat(reduces.sumOriginalLoanMoneyAmount) || '--';
-      sums[8] = (this.$util.moneyFormat(reduces.sumFinanceFamilyTotalAsset) || '--') + '万';
-      return sums;
-    },
+      const sums = []
+      sums[1] = '合计'
+      sums[7] = this.$util.moneyFormat(reduces.sumOriginalLoanMoneyAmount) || '--'
+      sums[8] = (this.$util.moneyFormat(reduces.sumFinanceFamilyTotalAsset) || '--') + '万'
+      return sums
+    }
 
   }
 }
